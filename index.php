@@ -1,23 +1,27 @@
-<!-- for文でループ処理をしてみよう -->
+<!-- 配列を使ってみよう -->
 
 <?php
 
-// ループ処理
-// for
-// break : ループを抜ける
-// continue : それ以降の処理をせずに次のループに移る
+// 配列
+// key value
 
-// $i = 100;
-//後判定なので、falseならば実行されない
-// while ($i < 10){
-//     echo $i;
-//     $i++;
-// }
+$sales = array(
+    "taguchi" => 200,
+    "fkoji" => 800,
+    "dotinstall" => 600,
+);
 
-for($i = 0; $i < 10; $i++){
-    if($i === 5){
-        // break;
-        continue;
-    }
-    echo $i;
-}
+//PHP5.4
+
+$sales = [
+    "taguchi" => 200,
+    "fkoji" => 800,
+    "dotinstall" => 600,
+];
+
+var_dump($sales["fkoji"]);//800
+$sales["fkoji"] = 900;
+var_dump($sales["fkoji"]);//900
+
+$colors = ["red","blue","pink"];
+var_dump($colors[1]);
