@@ -1,27 +1,18 @@
-<!-- foreachを使ってみよう -->
+<!--  関数を使ってみよう -->
 
 <?php
 
-// 配列
-// foreach
+function sayHi($name = "taguchi"){
+    // echo "hi!" . $name;
+    return "hi!" . $name;
+};
 
+// sayHi();
 
-$colors = ["red","blue","pink"];
+// sayHi("Tom");
+// sayHi("Bob");
+// sayHi();
 
-// foreach ($colors as $key => $value) {
-//     echo  "$value ";
-// }
-
-// foreach if while for コロン構文
-foreach ($colors as $key => $value) :
-    echo  "$value ";
-endforeach;
-
-?>
-<ul>
-<?php foreach ($colors as $key => $value) : ?>
-<li><?php echo  "$value "; ?></li>
-<?php endforeach; ?>
-</ul>
-
+$s = sayHi();
+var_dump($s);
 
