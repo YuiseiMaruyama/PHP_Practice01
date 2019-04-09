@@ -1,4 +1,4 @@
-<!--  クラスを作ってみよう -->
+<!--  クラスを継承してみよう -->
 
 <?php
 
@@ -14,14 +14,26 @@ class User{
         $this->name = $name;
     }
     //method
-    public function sayHi(){
+    //finalは継承先に上書きされないようにする
+    final public function sayHi(){
         echo "hi, i am $this->name!";
     }
 }
 
-$tom = new User("Tom");
-$bob = new User("Bob");
+class AdminUser extends User{
+    public function sayHello(){
+        echo "hello from Admin";
+    }
+    //override : 上書き
+    public function sayHi(){
+        echo "[admin] hi, i am $this->name!";
+    }
+}
 
-echo $tom->name; //Tom
-$bob->sayHi(); // hi i am Bob
+$tom = new User("Tom");
+$steve = new AdminUser("Steve");
+// echo $steve->name; //Steve
+$tom->sayHi();
+$steve->sayHi(); // hi i am Steve
+// $steve->sayHello();
 
