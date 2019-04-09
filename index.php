@@ -1,19 +1,17 @@
+<!-- 変数とデータ型について理解しよう -->
+
 <?php
 
-echo "hello from the TOP!";
+// 変数：データにつけるラベルで、phpでは　$変数名　で定義する
+// 文字列：string
+// 数値： integer float
+// 論理値： boolean / true false
+// 配列
+// オブジェクト
+// null
 
-?>
+//phpではいちいちデータ型を宣言する必要がない
+$msg = "hello from the TOP!";
+echo $msg;
+var_dump($msg);
 
-<!DOCTYPE html>
-<html lang= "ja">
-<head>
-    <meta charset="utf-8">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
-</head>
-<body>
-    <p>Hello World<?php echo  "from PHP"; ?></p>
-</body>
-</html>
