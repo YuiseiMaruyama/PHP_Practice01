@@ -1,13 +1,18 @@
-<!--  クラスを継承してみよう -->
+<!--  アクセス権について理解しよう -->
 
 <?php
 
-// クラスが持つ変数：プロパティ
-// クラスが持つ関数：メソッド
+// アクセス権
+// - private : そのクラスからのみアクセス可能
+// - protected : そのクラス+親子クラスからのみアクセス可能
+// - public  : どこからでもアクセス可能
 
 class User{
     //property
-    public $name;
+    // public $name;
+    // private $name;
+    protected $name;//Userでは使いたくないが、AdminUserで使いたい
+
 
     //constructor
     public function __construct($name){
@@ -15,25 +20,21 @@ class User{
     }
     //method
     //finalは継承先に上書きされないようにする
-    final public function sayHi(){
+    public function sayHi(){
         echo "hi, i am $this->name!";
     }
 }
 
 class AdminUser extends User{
     public function sayHello(){
-        echo "hello from Admin";
-    }
-    //override : 上書き
-    public function sayHi(){
-        echo "[admin] hi, i am $this->name!";
+        echo "hello from $this->name";
     }
 }
 
 $tom = new User("Tom");
+// echo $tom->name;
+
 $steve = new AdminUser("Steve");
-// echo $steve->name; //Steve
-$tom->sayHi();
-$steve->sayHi(); // hi i am Steve
-// $steve->sayHello();
+$steve -> sayHello();
+
 
