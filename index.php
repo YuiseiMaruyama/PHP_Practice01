@@ -1,18 +1,16 @@
-<!--  関数を使ってみよう -->
+<!--  ローカル変数を理解しよう -->
+
+
+<!-- 関数 -->
 
 <?php
 
-function sayHi($name = "taguchi"){
-    // echo "hi!" . $name;
-    return "hi!" . $name;
+$lang = "ruby";
+
+function sayHi($name){
+    $lang = "php";
+    echo "hi! . $name from $lang";
 };
 
-// sayHi();
-
-// sayHi("Tom");
-// sayHi("Bob");
-// sayHi();
-
-$s = sayHi();
-var_dump($s);
-
+sayHi("Tom");
+var_dump($lang);//ruby
