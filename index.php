@@ -1,19 +1,34 @@
-<!--  抽象クラスを使ってみよう -->
+<!--  インターフェースを使ってみよう -->
+
+<!-- 抽象クラス内では抽象メソッド以外のメソッドとかプロパティの実装ができる
+インターフェース内ではできない
+
+抽象クラスは1つしか継承できない
+インターフェースは複数実装できる -->
+
+
 
 <?php
 
-// 抽象クラス
-// 継承が前提となるクラス
-abstract class BaseUser{
-    public $name;
-    //実装する設計図のようなもので、この時点では中身を書く必要はない
-    abstract public function sayHi();
+// interface
+// クラス内で指定したメソッドを実装しろと説明するもの
+// アクセス権はpublic
+interface sayHi{
+    public function sayHi();
 }
 
-// このクラスでsayHi()を実装
-class User extends BaseUser{
+interface sayHello{
+    public function sayHello();
+}
+
+
+// このクラスでinterfaceを実装
+class User implements sayHi,sayHello{
     public function sayHi(){
-        echo "hello from User!";
+        echo "hi!";
+    }
+    public function sayHello(){
+        echo "hello!";
     }
 }
 
