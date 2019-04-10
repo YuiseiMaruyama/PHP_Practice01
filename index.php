@@ -1,41 +1,20 @@
-<!--  staticキーワードを使ってみよう -->
+<!--  抽象クラスを使ってみよう -->
 
 <?php
 
-// static : インスタンス化させずに定義する
-
-class User{
+// 抽象クラス
+// 継承が前提となるクラス
+abstract class BaseUser{
     public $name;
-    public static $count = 0;
+    //実装する設計図のようなもので、この時点では中身を書く必要はない
+    abstract public function sayHi();
+}
 
-    //constructor
-    public function __construct($name){
-        $this->name = $name;
-        //同じクラス内でクラス名を使う時には self が使える
-        //self = User
-        self::$count++;
-    }
-    //method
+// このクラスでsayHi()を実装
+class User extends BaseUser{
     public function sayHi(){
-        echo "hi, i am $this->name!";
-    }
-    //インスタンスを作らないので引数　$nameなどは使えない
-    public static function getMessage(){
-        echo "hello from User class!";
+        echo "hello from User!";
     }
 }
-    
-//static にアクセスするには :: をつける
-// User::getMessage();
-
-$tom = new User("Tom");
-$bob = new User("Bob");
-
-echo User::$count;//2
-
-// echo $tom->name;
-
-// $steve = new AdminUser("Steve");
-// $steve -> sayHello();
 
 
